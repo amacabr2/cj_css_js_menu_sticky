@@ -1,17 +1,17 @@
-(function(w,d,undefined){
+(function(w, d, undefined){
 
     let el_html = d.documentElement;
     let el_body = d.getElementsByTagName('body')[0];
     let header = d.getElementById('header');
 
-    let menuIsStuck = function () {
+    let menuIsStuck = function (triggerElement) {
 
         let wScrollTop	= w.pageYOffset || el_body.scrollTop;
         let regexp		= /(nav\-is\-stuck)/i;
         let classFound	= el_html.className.match( regexp );
         let navHeight	= header.offsetHeight;
         let bodyRect	= el_body.getBoundingClientRect();
-        let scrollValue	= 600;
+        let scrollValue	= triggerElement ? triggerElement.getBoundingClientRect().top - bodyRect.top - navHeight  : 600;
 
         // si le scroll est d'au moins 600 et la class nav-is-stuck n'existe pas sur HTML
         if ( wScrollTop > scrollValue && !classFound ) {
@@ -28,8 +28,7 @@
     };
 
     let onScrolling = function () {
-        menuIsStuck();
-        // on pourrait faire plein d'autres choses ici
+        menuIsStuck(d.getElementById('main'));
     };
 
     // quand on scroll
