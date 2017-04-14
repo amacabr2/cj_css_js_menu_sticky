@@ -60,6 +60,28 @@ p {
     word-spacing: 0.025em;
 }
 
+/* footer*/
+.main-footer {
+    background: #364452;
+}
+.main-footer .container {
+    padding: 50px 25px;
+    color: #FFF;
+    color: rgba(255,255,255,.6);
+}
+.main-footer a {
+    color: inherit;
+    letter-spacing: 0.125em;
+    word-spacing: 0.125em;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+.main-footer span {
+    display: inline-block;
+    margin: 0 15px;
+    color: rgba(255,255,255,.2);
+}
+
 /* MENU */
 
 .main-header {
@@ -125,4 +147,24 @@ p {
 /* Je vire outline car juste au-dessus je définis un style :focus */
 .header-nav a:focus {
     outline: none;
+}
+
+/* ANIMATION MENU */
+
+.nav-is-stuck .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    animation: stickAnim .3s;
+}
+
+@keyframes stickAnim {
+    0% {
+        transform: translateY(-86px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
